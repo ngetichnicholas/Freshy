@@ -19,7 +19,7 @@ from .email import *
 # Create your views here.
 def index(request):
   current_user = request.user
-  products = Product.objects.all()
+  products = Grocery.objects.all()
   
   context = {
     'current_user':current_user,
