@@ -1,0 +1,44 @@
+{% load bootstrap4 %}
+{% load static %}
+{% load cloudinary %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Online Grocery Shop</title>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700"
+        rel="stylesheet">
+
+    {% block styles %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    {% endblock styles %}
+
+</head>
+
+<body>
+    {% include 'navbar.html' %}
+
+    {% block content %}
+    {% endblock %}
+
+    <!-- Footer-->
+    <footer class="bg-light py-5 footer">
+        <div class="text-center" style="color: #1c686b;">Copyright &copy; 2021 - Online Grocery Shop</div>
+    </footer>
+
+    <script src="{% static 'js/main.js' %}"></script>
+    <script>
+
+        $(document).ready(function () {
+            $("#messages").fadeOut(7000)
+        })
+    </script>
+</body>
+
+</html>
