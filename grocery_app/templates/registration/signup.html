@@ -1,6 +1,23 @@
 {%extends "base.html"%}
 {% load bootstrap4 %}
 {% block content %}
+<style>
+    input[type=text],input[type=email],input[type=password] {
+      display: block;
+      width: 100%;
+      height: calc(1.5em + .75rem + 2px);
+      padding: .375rem .75rem;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.5;
+      color: #495057;
+      background-color: #fff;
+      background-clip: padding-box;
+      border: 1px solid #ced4da;
+      border-radius: .25rem;
+      transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  }
+  </style>
 <section>
     <div class="container-fluid">
         <div class="row">
@@ -11,13 +28,38 @@
                 <p> Some Information Might be Incorrect </p>
                 {% endif %}
                 <div class="card">
-                    <div class="card-header">
-                        <h3>Sign Up</h3>
+                    <div class="">
+                        <h3 class="text-center">Sign Up</h3>
                     </div>
                     <div class="card-body">
                         <form action="" method="post">
                             {% csrf_token %}
-                            {% bootstrap_form signup_form %}
+                            <div class="md-form mb-5">
+                                <label for="full_name" class="text-primary">Full Name</label>
+                                {{signup_form.full_name}}
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-4 col-md-12 mb-4">
+                                    <label for="username" class="text-primary">Username</label>
+                                    {{signup_form.username}}
+                                </div>
+                                <div class="col-lg-4 col-md-6 mb-4">
+                                    <label for="email" class="text-primary">Email Address</label>
+                                    {{signup_form.email}}
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-4 col-md-12 mb-4">
+                                    <label for="password1" class="text-primary">Password</label>
+                                    {{signup_form.password1}}
+                                </div>
+                                <div class="col-lg-4 col-md-6 mb-4">
+                                    <label for="password2" class="text-primary">Confirm Password</label>
+                                    {{signup_form.password2}}
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <input type="submit" class="btn btn-primary btn-sm" value="Sign Up">
                             </div>
@@ -29,12 +71,12 @@
                                 </small>
                             </div>
                         </form>
-    
+
                     </div>
-                    
-    
+
+
                 </div>
-    
+
             </div>
             <!-- empty div -->
             <div class="col-md-3"></div>
@@ -43,4 +85,3 @@
 </section>
 
 {% endblock %}
-
