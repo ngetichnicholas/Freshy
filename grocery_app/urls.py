@@ -12,6 +12,9 @@ urlpatterns = [
     path('register/',app_views.signup_view,name='register'),
     path('accounts/login/',app_views.login,name='login'),
     path('logout/',auth_views.LogoutView.as_view(template_name = 'index.html'),name='logout'),
+
+    path('grocery/<int:grocery_id>',app_views.grocery_view,  name='grocery_view'),
+    path('add-to-cart/<int:grocery_id>/', app_views.add_to_cart, name='add_to_cart'),
 ]
 if settings.DEBUG:
   urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

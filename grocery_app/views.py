@@ -19,11 +19,11 @@ from .email import *
 # Create your views here.
 def index(request):
   current_user = request.user
-  products = Grocery.objects.all()
+  groceries = Grocery.objects.all()
   
   context = {
     'current_user':current_user,
-    'products':products
+    'groceries':groceries
     }
   return render(request, 'index.html',context)
 
@@ -71,3 +71,12 @@ def login(request):
       messages.error(request, "Invalid username or password.")
   form = AuthenticationForm()
   return render(request = request,template_name = "registration/login.html",context={"form":form})
+
+def grocery_view(request,grocery_id):
+  current_user = request.user
+  grocery = Grocery.objects.get(pk = grocery_id)
+  
+  return render(request, 'grocery_page.html', {'current_user':current_user,'grocery':grocery})
+
+def add_to_cart(request):
+  pass

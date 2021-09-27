@@ -1,4 +1,34 @@
 {% extends 'base.html' %}
 {% block content %}
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <h2 class="text-center">Featured Products</h2>
+        <div class="row">
+          {% for grocery in groceries %}
+          <div class="col-md-4 col-sm-6 text-center product">
+            <a href="{% url 'grocery_view' grocery.id  %}">
+              <img src="{{grocery.image.url}}" width="100%" alt="">
+            </a>
+            <a href="{% url 'grocery_view' grocery.id  %}">
+              <h5 class="grocery-name">{{grocery.name}}</h5>
+            </a>
+            <p>Price: <span class="price">Ksh {{grocery.selling_price}}</span></p>
+            <form class="text-center">
+              <a href="{% url 'add_to_cart' grocery.id %}" class="btn btn-primary">
+                Add to cart
+                <i class="fas fa-shopping-cart ml-1"></i>
+              </a>
+  
+            </form>
+          </div>
+          {% endfor %}
+  
+        </div>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+  </div>
 
 {% endblock %}
