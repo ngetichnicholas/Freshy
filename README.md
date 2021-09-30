@@ -1,7 +1,7 @@
 # Freshy Groceries
 *****
 ### Description
-This is a web application for online groceries
+This is a web application for the online purchase of groceries within Bomet Town,Kenya.
 *****
 ### Landing page and products
 *****
